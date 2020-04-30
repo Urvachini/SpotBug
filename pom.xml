@@ -66,12 +66,7 @@
                                         <limit>
                                             <counter>INSTRUCTION</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.90</minimum>
-                                        </limit>
-                                        <limit>
-                                            <counter>CLASS</counter>
-                                            <value>MISSEDCOUNT</value>
-                                            <maximum>0</maximum>
+                                            <minimum>100%</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
@@ -85,13 +80,21 @@
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <version>4.0.0</version>
                 <dependencies>
-                    <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
                     <dependency>
                         <groupId>com.github.spotbugs</groupId>
                         <artifactId>spotbugs</artifactId>
                         <version>4.0.2</version>
                     </dependency>
                 </dependencies>
+                <executions>
+                    <execution>
+                        <id>check</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
